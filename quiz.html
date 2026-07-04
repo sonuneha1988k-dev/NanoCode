@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Basics MCQ Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { color: #007BFF; }
+    .question { margin: 20px 0; padding: 15px; background: #fff; border-radius: 8px; }
+    button { background: #007BFF; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    #result { margin-top: 20px; font-weight: bold; }
+
+    /* Popup modal */
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); }
+    .modal-content { background: #fff; margin: 15% auto; padding: 20px; border-radius: 10px; width: 40%; }
+    .close { float: right; font-size: 20px; cursor: pointer; color: red; }
+  </style>
+</head>
+<body>
+  <h1>Python Test for certificate</h1>
+  <form id="quizForm">
+    <div class="question">
+      <p>1. Output of <code>print("Hello, World!")</code>?</p>
+      <label><input type="radio" name="q1" value="Hello, World!"> Hello, World!</label><br>
+      <label><input type="radio" name="q1" value="Hello World"> Hello World</label><br>
+      <label><input type="radio" name="q1" value="Error"> Error</label>
+    </div>
+
+    <div class="question">
+      <p>2. Which data type stores decimal numbers?</p>
+      <label><input type="radio" name="q2" value="int"> int</label><br>
+      <label><input type="radio" name="q2" value="float"> float</label><br>
+      <label><input type="radio" name="q2" value="str"> str</label>
+    </div>
+
+    <div class="question">
+      <p>3. Keyword for loop until condition false?</p>
+      <label><input type="radio" name="q3" value="for"> for</label><br>
+      <label><input type="radio" name="q3" value="while"> while</label><br>
+      <label><input type="radio" name="q3" value="loop"> loop</label>
+    </div>
+
+    <div class="question">
+      <p>4. Output of <code>len([1,2,3,4])</code>?</p>
+      <label><input type="radio" name="q4" value="3"> 3</label><br>
+      <label><input type="radio" name="q4" value="4"> 4</label><br>
+      <label><input type="radio" name="q4" value="Error"> Error</label>
+    </div>
+
+    <div class="question">
+      <p>5. Method to convert string to uppercase?</p>
+      <label><input type="radio" name="q5" value="upper"> upper</label><br>
+      <label><input type="radio" name="q5" value="lower"> lower</label><br>
+      <label><input type="radio" name="q5" value="capitalize"> capitalize</label>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <!-- Success Popup -->
+  <div id="popup" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h3>Enter your details</h3>
+      <form id="userForm">
+        <label>Name: <input type="text" name="username" required></label><br><br>
+        <label>Email: <input type="email" name="email" required></label><br><br>
+        <button type="button" onclick="sendData()">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Wrong Answer Popup -->
+  <div id="wrongPopup" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeWrongPopup()">&times;</span>
+      <h3>❌ Wrong Answers!</h3>
+      <p>Please review your notes again.</p>
+      <button onclick="redirectNotes()">Go to Notes</button>
+    </div>
+  </div>
+  <script>
+  // ✅ Correct answers based on your python.html notes
+  const answers = { 
+    q1: "Hello, World!", 
+    q2: "float", 
+    q3: "while", 
+    q4: "4", 
+    q5: "upper" 
+  };
+
+  // Check answers when user presses Submit
+  function checkAnswers() {
+    const form = document.forms["quizForm"];
+    let score = 0;
+
+    for (let key in answers) {
+      if (form[key].value === answers[key]) {
+        score++;
+      }
+    }
+
+    if (score === Object.keys(answers).length) {
+      // ✅ All correct → show success popup
+      document.getElementById("result").innerText = "🎉 All answers correct! And in 7 days u will get your certificate";
+      document.getElementById("popup").style.display = "block";
+    } else {
+      // ❌ Wrong answers → show wrong popup
+      document.getElementById("result").innerText = `You got ${score}/5 correct.`;
+      document.getElementById("wrongPopup").style.display = "block";
+    }
+  }
+
+  // Close success popup
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
+  // Close wrong popup
+  function closeWrongPopup() {
+    document.getElementById("wrongPopup").style.display = "none";
+  }
+
+  // Redirect to notes page if wrong
+  function redirectNotes() {
+    window.location.href = "python.html";
+  }
+
+  // Send user details to backend
+  function sendData() {
+    const formData = new FormData(document.getElementById("userForm"));
+    const data = {};
+    formData.forEach((value, key) => data[key] = value);
+
+    fetch("/send-data", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.text())
+    .then(msg => alert(msg))
+    .catch(err => alert("Error: " + err));
+
+    closePopup();
+  }
+  fetch("https://quiz-backend.onrender.com/send-data", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data)
+})
+
+</script>
+
+  </body>
+</html>

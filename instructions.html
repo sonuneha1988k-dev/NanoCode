@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions before we start</title>
+    <style>
+        html, body {
+  height: 100%;
+  margin: 0;
+  background: #ffffff; /* clean white base */
+  border-radius: 50px; /* smoother gem-like corners */
+  overflow: hidden;
+
+  /* Multi-layer polish */
+  box-shadow: 
+    0 0 60px rgba(255, 215, 0, 0.8),   /* strong outer golden glow */
+    0 0 120px rgba(255, 223, 100, 0.6), /* extended soft glow */
+    inset 0 0 40px rgba(255, 223, 100, 0.5), /* inner polish */
+    inset 0 0 80px rgba(255, 240, 150, 0.3); /* deeper inner shine */
+}
+
+/* Optional animated polish */
+@keyframes gemPulse {
+  0% {
+    box-shadow: 
+      0 0 60px rgba(255, 215, 0, 0.8),
+      0 0 120px rgba(255, 223, 100, 0.6),
+      inset 0 0 40px rgba(255, 223, 100, 0.5),
+      inset 0 0 80px rgba(255, 240, 150, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 90px rgba(255, 215, 0, 1),
+      0 0 150px rgba(255, 223, 100, 0.8),
+      inset 0 0 60px rgba(255, 223, 100, 0.7),
+      inset 0 0 100px rgba(255, 240, 150, 0.5);
+  }
+  100% {
+    box-shadow: 
+      0 0 60px rgba(255, 215, 0, 0.8),
+      0 0 120px rgba(255, 223, 100, 0.6),
+      inset 0 0 40px rgba(255, 223, 100, 0.5),
+      inset 0 0 80px rgba(255, 240, 150, 0.3);
+  }
+}
+
+html, body {
+  animation: gemPulse 6s infinite alternate;
+}
+#btn {
+  background: #007BFF;          /* bright blue */
+  color: #ffffff;               /* white text */
+  padding: 12px 28px;           /* button size */
+  border: none;                 /* no default border */
+  border-radius: 30px;          /* curved corners */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;    /* smooth hover effect */
+}
+
+/* Hover effect */
+#btn:hover {
+  background: #0056b3;          /* darker blue on hover */
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.7); /* glowing polish */
+  transform: scale(1.05);       /* slight zoom */
+}
+    </style>
+</head>
+<body>
+    <h1>Instructions</h1>
+    <p>Before we move on first you need an compiler so for learning you can use Online Python Compiler of Programize Pro. At this site you will master the python's basics and get a certificate as you can see in the image given below. This site is developed by NanoTech.</p>
+    <img alt="certificate's image" src="certificate.png" width="600px" length="400px">
+    <br>
+    <button id="btn" onclick="document.location.href='python.html'">Start</button>
+</body>
+</html>

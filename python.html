@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Mastery – Ultimate Basics Deep Dive</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #fff; margin: 0; padding: 0; line-height: 1.7; }
+    header { background: linear-gradient(90deg, #007BFF, #00C6FF); color: white; padding: 20px; text-align: center; }
+    .container { max-width: 950px; margin: 30px auto; padding: 20px; }
+    .lesson { margin: 35px 0; padding: 25px; border-left: 6px solid #007BFF; background: #f9f9f9; border-radius: 12px; }
+    pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 8px; overflow-x: auto; }
+    .btn { background: #007BFF; color: #fff; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer; margin-top: 10px; margin-right: 5px; }
+    .btn:hover { background: #0056b3; }
+    .explanation { margin-top: 10px; color: #333; }
+
+    /* Modal styling */
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); }
+    .modal-content { background: #fff; margin: 15% auto; padding: 20px; border-radius: 10px; width: 60%; box-shadow: 0 0 20px rgba(0,123,255,0.7); }
+    .close { float: right; font-size: 20px; cursor: pointer; color: red; font-weight: bold; }
+    .output { background: #eee; padding: 15px; border-radius: 8px; font-family: monospace; white-space: pre-wrap; margin-top: 15px; border-left: 4px solid #333; }
+    #btn {
+  background: #007BFF;          /* bright blue */
+  color: #ffffff;               /* white text */
+  padding: 12px 28px;           /* button size */
+  border: none;                 /* no default border */
+  border-radius: 30px;          /* curved corners */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;    /* smooth hover effect */
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Python Mastery – Complete Basics Deep Dive</h1>
+    <p>Every fundamental Python concept explained like a YouTube tutorial with interactive run buttons</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Lesson 0 -->
+    <div class="lesson">
+      <h2>Lesson 0: Your First Program</h2>
+      <pre id="code0">print("Hello, World!")</pre>
+      <button class="btn" onclick="copyCode('code0')">Copy Code</button>
+      <button class="btn" onclick="runCode('code0')">Run Code</button>
+      <div class="explanation">
+        🎥 Tutorial voice: "This is the first step into programming. The <code>print()</code> function displays information on your screen. Run it to see your greeting!"
+      </div>
+    </div>
+
+    <!-- Lesson 1 -->
+    <div class="lesson">
+      <h2>Lesson 1: Variables & Data Types</h2>
+      <pre id="code1">username = "Alex"
+age = 24
+is_learning = True
+
+print("User:", username)
+print("Age next year:", age + 1)
+print("Learning?", is_learning)</pre>
+      <button class="btn" onclick="copyCode('code1')">Copy Code</button>
+      <button class="btn" onclick="runCode('code1')">Run Code</button>
+      <div class="explanation">
+        🎥 Tutorial voice: "Think of variables as dynamic boxes storing data. Python figures out the data types—strings, integers, or booleans—automatically without declarations!"
+      </div>
+    </div>
+
+    <!-- Lesson 2 -->
+    <div class="lesson">
+      <h2>Lesson 2: Conditionals (If/Else)</h2>
+      <pre id="code2">score = 85
+
+if score >= 90:
+    print("Grade: A")
+elif score >= 80:
+    print("Grade: B")
+else:
+    print("Grade: C")</pre>
+      <button class="btn" onclick="copyCode('code2')">Copy Code</button>
+      <button class="btn" onclick="runCode('code2')">Run Code</button>
+      <div class="explanation">
+        🎥 Tutorial voice: "Control flow makes your program smart. Notice the structural code indentation here; it tells Python exactly which commands belong inside which block."
+      </div>
+    </div>
+
+    <!-- Lesson 3 -->
+    <div class="lesson">
+      <h2>Lesson 3: Loops (For/While)</h2>
+      <pre id="code3">for i in range(3):
+    print("Loop execution number:", i)</pre>
+      <button class="btn" onclick="copyCode('code3')">Copy Code</button>
+      <button class="btn" onclick="runCode('code3')">Run Code</button>
+      <div class="explanation">
+        🎥 Tutorial voice: "Loops automate repetitive tasks instantly. The <code>range(3)</code> generator counts seamlessly from 0 up to, but not including, index 3."
+      </div>
+    </div>
+
+    <!-- Lesson 4 -->
+    <div class="lesson">
+      <h2>Lesson 4: Functions</h2>
+      <pre id="code4">def greet_user(name):
+    return "Welcome back, " + name + "!"
+
+message = greet_user("Sarah")
+print(message)</pre>
+      <button class="btn" onclick="copyCode('code4')">Copy Code</button>
+      <button class="btn" onclick="runCode('code4')">Run Code</button>
+      <div class="explanation">
+        🎥 Tutorial voice: "Functions are reusable blocks of code. Define them with <code>def</code>, pass arguments inside, and use <code>return</code> to send back the result!"
+      </div>
+    </div>
+
+    <!-- Lesson 5 -->
+    <div class="lesson">
+      <h2>Lesson 5: Lists (Arrays)</h2>
+      <pre id="code5">fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+
+print("First fruit:", fruits[0])
+print("Full list:", fruits)
+print("Total items:", len(fruits))</pre>
+      <button class="btn" onclick="copyCode('code5')">Copy Code</button>
+      <button class="btn" onclick="runCode('code5')">Run Code</button>
+      <div class="explanation">
+        🎥 Tutorial voice: "Lists store ordered collections of items. Remember, computer science indexes start counting at 0, so <code>fruits[0]</code> fetches your very first element."
+      </div>
+    </div>
+
+    <!-- Lesson 6 -->
+    <div class="lesson">
+      <h2>Lesson 6: Dictionaries (Key-Value)</h2>
+      <pre id="code6">user_profile = {
+    "username": "coder99",
+    "level": 5,
+    "verified": True
+}
+
+print("Username is:", user_profile["username"])
+print("User level is:", user_profile["level"])</pre>
+      <button class="btn" onclick="copyCode('code6')">Copy Code</button>
+      <button class="btn" onclick="runCode('code6')">Run Code</button>
+      <div class="explanation">
+        🎥 Tutorial voice: "Dictionaries store pairs of data using labels called keys. Instead of searching by index numbers, you look up data instantly using text names!"
+      </div>
+    </div>
+
+    <!-- Lesson 7 -->
+    <div class="lesson">
+      <h2>Lesson 7: Error Handling (Try/Except)</h2>
+      <pre id="code7">try:
+    result = 10 / 0
+except ZeroDivisionError:
+    result = "Error: You cannot divide a number by zero!"
+
+print(result)</pre>
+      <button class="btn" onclick="copyCode('code7')">Copy Code</button>
+      <button class="btn" onclick="runCode('code7')">Run Code</button>
+      <div class="explanation">
+        🎥 Tutorial voice: "Crash-proof your software using <code>try</code> and <code>except</code> blocks. If code inside the try block fails, Python safely falls back to your exception plan."
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Code Output Modal -->
+  <div id="codeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3>Console Output</h3>
+      <div id="consoleOutput" class="output"></div>
+    </div>
+  </div>
+  <button id="btn" onclick="document.location.href='quiz.html'">Let's Get the Certificate by giving an test</button>
+  <script>
+    function copyCode(elementId) {
+      const codeText = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(codeText).then(() => {
+        alert("Code copied to clipboard!");
+      }).catch(err => {
+        console.error("Failed to copy code: ", err);
+      });
+    }
+
+    function runCode(elementId) {
+      const codeText = document.getElementById(elementId).innerText;
+      let mockOutput = "";
+
+      // Comprehensive logic engine mapping all lessons to precise terminal output lines
+      if (elementId === 'code0') {
+        mockOutput = "Hello, World!";
+      } else if (elementId === 'code1') {
+        mockOutput = "User: Alex\nAge next year: 25\nLearning? True";
+      } else if (elementId === 'code2') {
+        mockOutput = "Grade: B";
+      } else if (elementId === 'code3') {
+        mockOutput = "Loop execution number: 0\nLoop execution number: 1\nLoop execution number: 2";
+      } else if (elementId === 'code4') {
+        mockOutput = "Welcome back, Sarah!";
+      } else if (elementId === 'code5') {
+        mockOutput = "First fruit: apple\nFull list: ['apple', 'banana', 'cherry', 'orange']\nTotal items: 4";
+      } else if (elementId === 'code6') {
+        mockOutput = "Username is: coder99\nUser level is: 5";
+      } else if (elementId === 'code7') {
+        mockOutput = "Error: You cannot divide a number by zero!";
+      } else {
+        mockOutput = "Process finished with exit code 0";
+      }
+
+      document.getElementById("consoleOutput").innerText = mockOutput;
+      document.getElementById("codeModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("codeModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("codeModal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
